@@ -22,4 +22,6 @@ jobs:
       - name: List files after checkout
         run: |
           ls ${{ github.workspace }}
-      - name: "harvester-${{ matrix.harvester-ver }} + ui-${{ matrix.ui-ver }}: ${{ job.status }}"
+      - run: |
+          echo "harvester-${{ matrix.harvester-ver }} + ui-${{ matrix.ui-ver }}: ${{ job.status }}"
+        
