@@ -24,8 +24,15 @@ jobs:
           ls ${{ github.workspace }}
       - run: |
           echo "harvester-${{ matrix.harvester-ver }} + ui-${{ matrix.ui-ver }}: ${{ job.status }}"
+      - id: color-selector
+        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+      - name: Get selected color
+        env:
+           SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR" >> $GITHUB_STEP_SUMMARY
       - name: Store build timestamp
         run: echo "BUILD_TIME=$(date +'%T')" >> $GITHUB_ENV
       - name: Deploy using stored timestamp
         run: echo "Deploying at $BUILD_TIME"
+        
         
