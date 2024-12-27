@@ -23,7 +23,7 @@ describe('login page for harvester', () => {
 
     it('should login successfully', () => {
         const login = new LoginPage();
-        login.login();
+        login.login(constants.username, "InvalidPassword);
     });
 
     it("Log out from valid login", () => {
