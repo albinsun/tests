@@ -23,14 +23,14 @@ describe('login page for harvester', () => {
 
     it('should login successfully', () => {
         const login = new LoginPage();
-        login.login(constants.username, "InvalidPassword);
+        login.login();
     });
 
     it("Log out from valid login", () => {
         const page = new LoginPage();
         page.visit()
         page.inputUsername()
-        page.inputPassword()
+        page.inputPassword("the Invalid Password")
 
         page.loginBtn.click()
         page.validateLogin();
